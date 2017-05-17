@@ -11,22 +11,24 @@ def todo_list(request):
     print(todo_list)
     return render(request,'todo/list.html', {'todo_list': todo_list})
 
+#詳細ビュー
 def todo_detail(request, pk):
     memo = get_object_or_404(Memo, pk=pk)
     return render(request, 'todo/todo_detail.html', {'todo': memo})
 
+#新規作成ビュー
 def todo_new(request):
     if request.method == "POST":
         form = EditForm(request.POST)
         if form.is_valid():
             memo = form.save(commit=False)
             memo.save()
-            return redirect('todo.views.todo_detail', pk=memo.id)
+            return redirect('detail', pk=memo.id)
     else:
         form = EditForm()        
     return render(request, 'todo/todo_edit.html', {'form':form})
 
-
+#編集ビュー
 def todo_edit(request, pk):
     memo = get_object_or_404(Memo, pk=pk)
     if request.method == "POST":
