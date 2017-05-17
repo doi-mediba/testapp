@@ -41,4 +41,10 @@ def todo_edit(request, pk):
         form = EditForm(instance=memo)
     return render(request, 'todo/todo_edit.html', {'form': form})
 
-
+def todo_delete(request, pk):
+    memo = get_object_or_404(Memo, pk=pk)
+    if request.method == "POST":
+        #削除する
+        memo.delete()
+        return redirect('top')
+    return render(request, 'todo/todo_delete.html', {'todo': memo})
