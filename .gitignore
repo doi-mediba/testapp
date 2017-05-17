@@ -1,0 +1,3 @@
+#sqlite3, pycを除外
+*.pyc
+*.sqlite3
