@@ -1,0 +1,12 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+    <div class=todo_title>
+        <h3>Title</h3>
+        <p>{{todo.title}}</p>
+    </div>
+    <div class=todo_detail>
+        <h3>Detail</h3>
+        <p>{{todo.detail | linebreaks}}</p>
+    </div>
+{% endblock %}

@@ -5,7 +5,7 @@
     <div class="ui list">
         {% for memo in todo_list %}
         <div class="item">
-            <p><a href="">{{ memo.title }}</a></p>
+            <p><a href="{% url 'detail' pk=memo.id %}">{{ memo.title }}</a></p>
         </div>
         {% endfor %}
     </div>

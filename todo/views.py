@@ -8,3 +8,10 @@ def todo_list(request):
     todo_list = get_list_or_404(Memo)
     print(todo_list)
     return render(request,'todo/list.html', {'todo_list': todo_list})
+
+def todo_detail(request, pk):
+    todo = get_object_or_404(Memo, pk=pk)
+    return render(request, 'todo/todo_detail.html', {'todo': todo})
+
+
+
