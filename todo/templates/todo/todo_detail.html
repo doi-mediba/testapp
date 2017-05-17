@@ -9,4 +9,5 @@
         <h3>Detail</h3>
         <p>{{todo.detail | linebreaks}}</p>
     </div>
+    <a href="{% url 'edit' pk=todo.id %}">Edit</a>
 {% endblock %}

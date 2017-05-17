@@ -2,10 +2,11 @@
 
 {% block content %}
 
-    <div class="ui list">
+    <div class="list-group">
         {% for memo in todo_list %}
-        <div class="item">
-            <p><a href="{% url 'detail' pk=memo.id %}">{{ memo.title }}</a></p>
+        <div class="list-group-item">
+        <a href="{% url 'detail' pk=memo.id %}">{{ memo.title }}</a>
+        <a class="badge" href="{% url 'edit' pk=memo.id %}">Edit</a>
         </div>
         {% endfor %}
     </div>
