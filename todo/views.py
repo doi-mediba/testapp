@@ -9,10 +9,13 @@ from .forms import EditForm
 def todo_list(request):
     todo_list = get_list_or_404(Memo)
     print(todo_list)
+    for todo in todo_list:        
+        print(todo.id)
     return render(request,'todo/list.html', {'todo_list': todo_list})
 
 #詳細ビュー
 def todo_detail(request, pk):
+    print(pk)
     memo = get_object_or_404(Memo, pk=pk)
     return render(request, 'todo/todo_detail.html', {'todo': memo})
 
