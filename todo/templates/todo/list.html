@@ -1,0 +1,15 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+
+    <div class="list-group">
+        {% for memo in todo_list %}
+        <div class="list-group-item">
+        <a href="{% url 'detail' pk=memo.id %}">{{ memo.title }}</a>
+        <a class="badge" href="{% url 'delete' pk=memo.id %}">Delete</a>
+        <a class="badge" href="{% url 'edit' pk=memo.id %}">Edit</a>
+        </div>
+        {% endfor %}
+    </div>
+    <a class="glyphicon glyphicon-plus" href="{% url 'new' %}"></a>
+{% endblock %}
